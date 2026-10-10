@@ -1,0 +1,10 @@
+data/
+outputs/
+editorial/numeric_validation/
+.Rhistory
+.RData
+.Ruserdata
+.Renviron
+.env
+.env.*
+*.Rproj.user/
