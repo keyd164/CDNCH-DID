@@ -8,7 +8,6 @@ R analysis code for continuous heat exposure and cardiovascular disease using an
 | --- | --- |
 | `01_run_did.R` | Primary models M0–M5, subgroup analyses, nonlinear exposure–response relationships, attributable burden, and robustness analyses. |
 | `09_run_population_sensitivity.R` | Population-weighted exposure sensitivity analysis and comparison with the original M5 model. |
-| `13_run_m5_country_intercept.R` | M5 sensitivity analysis adding country fixed intercepts. |
 | `check_population_model_setup.R` | Check eligible samples and reproduce the original mortality CDNCH coefficient. |
 | `editorial/validate_attribution.R` | Independently verify nonlinear predictions and attributable burden calculations. |
 
@@ -32,12 +31,11 @@ Run the primary analysis from the repository directory:
 Rscript 01_run_did.R
 ```
 
-The primary script creates the `outputs/` directory and the reference results used by the supplementary scripts. The primary and country-intercept scripts also accept an input path through the `DID_INPUT_FILE` environment variable.
+The primary script creates the `outputs/` directory and the reference results used by the supplementary scripts. The primary script also accepts an input path through the `DID_INPUT_FILE` environment variable.
 
 After completing the primary analysis:
 
 ```sh
-Rscript 13_run_m5_country_intercept.R
 Rscript check_population_model_setup.R
 ```
 
@@ -51,8 +49,8 @@ The attribution validation script retains the original local project path `D:/DI
 
 ## Model overview
 
-Main count-outcome models use a quasi-Poisson log link, a population offset, exposure increments of one IQR, and country-clustered robust inference. The core M5 model adjusts for seven covariates and superregion-specific natural-spline time trends. The country-intercept sensitivity adds country fixed intercepts to M5. Consult the scripts for the full model definitions and output conventions.
+Main count-outcome models use a quasi-Poisson log link, a population offset, exposure increments of one IQR, and country-clustered robust inference. The core M5 model adjusts for seven covariates and superregion-specific natural-spline time trends. Consult the scripts for the full model definitions and output conventions.
 
 ## Validation
 
-All five R scripts passed syntax parsing with R 4.5.2 before upload. This check does not rerun the statistical analyses.
+All four R scripts passed syntax parsing with R 4.5.2 before upload. This check does not rerun the statistical analyses.
